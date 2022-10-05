@@ -1,6 +1,6 @@
 <?php
 /*
- * VITE & Tailwind JIT development
+ * VITE development
  * Inspired by https://github.com/andrefelipe/vite-php-setup
  *
  */

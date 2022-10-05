@@ -9,17 +9,15 @@
 // ln -s {path_to_vite}/src/assets {path_to_public_html}/assets
 // on production everything will work just fine
 
-//import vue from '@vitejs/plugin-vue'
-import liveReload from 'vite-plugin-live-reload'
-const { resolve } = require('path')
-const fs = require('fs')
+import liveReload from 'vite-plugin-live-reload';
+const { resolve } = require('path');
+const fs = require('fs');
 
 
 // https://vitejs.dev/config
 export default {
 
   plugins: [
-    //vue(),
     liveReload(__dirname+'/**/*.php')
   ],
 
@@ -45,7 +43,7 @@ export default {
       input: {
         main: resolve( __dirname + '/main.js')
       },
-      
+
       /*
       output: {
           entryFileNames: `[name].js`,
@@ -72,7 +70,7 @@ export default {
     // serve over http
     https: false,
 
-    // serve over httpS
+    // serve over https
     // to generate localhost certificate follow the link:
     // https://github.com/FiloSottile/mkcert - Windows, MacOS and Linux supported - Browsers Chrome, Chromium and Firefox (FF MacOS and Linux only)
     // installation example on Windows 10:
