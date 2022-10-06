@@ -1,0 +1,48 @@
+{% if pagination %}
+
+  {% set classes = ['c-posts-pagination'] %}
+  {% if additional_classes is iterable %}
+    {% set classes = classes|merge(additional_classes) %}
+  {% endif %}
+
+  {% apply spaceless %}
+    <nav{{ ' class="' ~ classes|join(' ') ~ '"' }}>
+
+      {% if before_after and pagination.prev %}
+        {# A workaround for Loco Translate to be able to scan strings that are located inside HTML attributes #}
+        {% set prev_label = __('Go to previous page', 'theme_domain') %}
+        <a href="{{ pagination.prev.link }}" aria-label="{{ prev_label }}" class="c-posts-pagination__item c-posts-pagination__item--prev c-posts-pagination__item--is-link">{{ __('Previous', 'theme_domain') }}</a>
+      {% endif %}
+
+      {% if numbered %}
+
+        {% for page in pagination.pages %}
+
+          {% if page.link %}
+            {# use page.class to assign Wordpress classes #}
+            {% set page_label = __('Page', 'theme_domain') ~ ' ' ~ page.title %}
+            <a href="{{ page.link }}" aria-label="{{ page_label }}" class="c-posts-pagination__item c-posts-pagination__item--is-link">{{ page.title }}</a>
+          {% endif %}
+
+          {% if page.current %}
+            {% set current_label = __('Current page', 'theme_domain') ~ ', ' ~ __('page', 'theme_domain') ~ ' ' ~ page.title %}
+            <span tabindex="0" aria-label="{{ current_label }}" aria-current="true" class="c-posts-pagination__item c-posts-pagination__item--is-current">{{ page.title }}</span>
+          {% endif %}
+
+          {% if page.class == 'dots' %}
+            <span class="c-posts-pagination__dots">{{ page.title }}</span>
+          {% endif %}
+
+        {% endfor %}
+
+      {% endif %}
+
+      {% if before_after and pagination.next %}
+        {% set next_label = __('Go to next page', 'theme_domain') %}
+        <a href="{{ pagination.next.link }}" aria-label="{{ next_label }}" class="c-posts-pagination__item c-posts-pagination__item--next c-posts-pagination__item--is-link">{{ __('Next', 'theme_domain') }}</a>
+      {% endif %}
+
+    </nav>
+  {% endapply %}
+
+{% endif %}

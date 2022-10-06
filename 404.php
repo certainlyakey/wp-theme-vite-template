@@ -1,8 +1,12 @@
-<?php get_header() ?>
+<?php
+/**
+ * The template for displaying 404 pages (Not Found)
+ */
 
-    <div>
-        <h1>404</h1>
-        <h2>Not found</h2>
-    </div>
+use Timber\Timber;
 
-<?php get_footer() ?>
+$context = Timber::context();
+$context['title'] = __( 'Error', 'theme_domain' ) . ' 404 (' . __( 'page not found', 'theme_domain' ) . ')';
+$context['subtitle'] = sprintf( __( 'Sorry, we couldn\'t find what you\'re looking for', 'theme_domain' ), '<a href="' . get_bloginfo( 'url' ) . '">', '</a>' );
+
+Timber::render( 'message.twig', $context );

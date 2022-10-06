@@ -1,5 +1,8 @@
-<?php get_header() ?>
+<?php
 
-Hello from the theme!
+use Timber\Timber;
 
-<?php get_footer() ?>
+$context = Timber::context();
+$context['posts'] = Timber::get_posts( false );
+
+Timber::render( 'base.twig', $context );

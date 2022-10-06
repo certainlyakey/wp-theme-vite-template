@@ -18,7 +18,10 @@ const fs = require('fs');
 export default {
 
   plugins: [
-    liveReload(__dirname+'/**/*.php')
+    liveReload([
+      __dirname + '/**/*.php',
+      __dirname + '/**/*.twig',
+    ])
   ],
 
   // config
@@ -87,7 +90,7 @@ export default {
       host: 'localhost',
       //port: 443
     },
-    
+
   },
 
   // required for in-browser template compilation

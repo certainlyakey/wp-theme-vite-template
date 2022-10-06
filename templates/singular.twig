@@ -1,0 +1,10 @@
+{% extends 'base.twig' %}
+
+{% block content_area_inner %}
+
+  <article class="c-central-col{% block singular_article_class ' c-article-default' %}">
+    <h1>{{ post.title }}</h1>
+    {% block content_area_inner_content post.content %}
+  </article>
+
+{% endblock %}
