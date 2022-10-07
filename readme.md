@@ -42,7 +42,7 @@ import "./assets/js/scripts.js"
 
 ## Development with live preview/refresh
 
-Ensure **define("IS_VITE_DEVELOPMENT", true);** exists in your **wp-config.php** or theme/plugin **functions.php**. Just run **npm run dev** and refresh your development website.
+Ensure `IS_VITE_DEVELOPMENT` environment variable exists, is loaded and is set to `true`. Just run **npm run dev** and refresh your development website.
 
 ```bash
 npm run dev
@@ -52,7 +52,7 @@ After Vite dev server is started open your installed Wordpress website in any br
 
 ## Production build
 
-Just run **npm run build**, set defined **IS_VITE_DEVELOPMENT** to **false** and refresh local website.
+Just run **npm run build**, make sure `IS_VITE_DEVELOPMENT` is not set and refresh local website.
 
 ```bash
 npm run build
@@ -87,7 +87,7 @@ choco install mkcert
 # global one time install
 mkcert -install
 
-# run in project/theme folder to create localhost-key.pem & localhost.pem 
+# run in project/theme folder to create localhost-key.pem & localhost.pem
 mkcert localhost
 ```
 

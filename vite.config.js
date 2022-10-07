@@ -9,10 +9,12 @@
 // ln -s {path_to_vite}/src/assets {path_to_public_html}/assets
 // on production everything will work just fine
 
+import theme_config from './common_config.json';
 import liveReload from 'vite-plugin-live-reload';
 const { resolve } = require('path');
 const fs = require('fs');
 
+console.log(theme_config.vite_port, 'Vite config loaded');
 
 // https://vitejs.dev/config
 export default {
@@ -68,7 +70,7 @@ export default {
     // we need a strict port to match on PHP side
     // change freely, but update in your functions.php to match the same port
     strictPort: true,
-    port: 3000,
+    port: theme_config.vite_port,
 
     // serve over http
     https: false,

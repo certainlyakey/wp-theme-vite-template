@@ -28,9 +28,10 @@ add_action(
         'wp_head',
         function() {
           // default server address, port and entry point can be customized in vite.config.json
-          $vite_server = 'http://localhost:3000';
+          $vite_host = 'http://localhost';
+          $vite_port = themeprefix_get_common_config()->vite_port;
           $vite_entry_point = '/main.js';
-          $vite_url = $vite_server . $vite_entry_point;
+          $vite_url = $vite_host . ':' . $vite_port . $vite_entry_point;
           echo '<script type="module" crossorigin src="' . esc_url( $vite_url ) . '"></script>';
         }
       );
