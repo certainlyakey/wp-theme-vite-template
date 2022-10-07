@@ -45,3 +45,4 @@ Thumbs.db
 !.sass-lint.yml
 !.stylelintrc.json
 !.gitattributes
+!.browserslistrc
