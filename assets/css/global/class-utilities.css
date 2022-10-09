@@ -23,3 +23,7 @@
     display: none !important;
   }
 }
+
+.s-text-content {
+  @mixin text-content;
+}

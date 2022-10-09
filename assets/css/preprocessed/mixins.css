@@ -23,3 +23,29 @@
   -webkit-line-clamp: $number-of-lines;
   overflow: hidden;
 }
+
+@define-mixin text-content {
+  & > {
+    blockquote {
+      font-style: italic;
+    }
+    p, ul, ol {
+      &:not(:only-child) {
+        margin-block: calc(var(--unit) * 2);
+      }
+    }
+    ul li {
+      list-style-type: disc;
+    }
+    ul, ol {
+      li li {
+        margin-inline-start: calc(var(--unit) * 4);
+      }
+    }
+  }
+  iframe {
+    width: 100%;
+  }
+
+  /* stylelint-enable selector-max-type, selector-max-compound-selectors */
+}
