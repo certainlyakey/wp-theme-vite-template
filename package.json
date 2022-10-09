@@ -10,6 +10,7 @@
     "autoprefixer": "^10.4.11",
     "cross-env": "^7.0.3",
     "postcss": "^8.4.17",
+    "postcss-mixins": "^9.0.4",
     "postcss-nested": "^5.0.6",
     "postcss-normalize": "^10.0.1",
     "postcss-pxtorem": "^6.0.0",

@@ -1,0 +1,19 @@
+@define-mixin truncate-single-line {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@define-mixin pseudoblockelement {
+  display: block;
+  content: '';
+  position: absolute;
+}
+
+@define-mixin truncate-lines $number-of-lines {
+  /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $number-of-lines;
+  overflow: hidden;
+}
