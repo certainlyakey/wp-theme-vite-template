@@ -4,5 +4,9 @@ module.exports = {
     'autoprefixer': {},
     'postcss-nested': {},
     'postcss-normalize': {},
+    'postcss-pxtorem': {
+      unitPrecision: 2,
+      minPixelValue: 2,
+    },
   }
 }
