@@ -1,0 +1,5 @@
+.c-article-alpha {
+  &__content {
+    @mixin text-content;
+  }
+}

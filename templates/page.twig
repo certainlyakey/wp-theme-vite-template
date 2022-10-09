@@ -1,12 +1,14 @@
 {% extends 'singular.twig' %}
 
-{% block singular_article_class ' c-article-beta' %}
+{% block singular_article_class ' c-article-alpha' %}
 
 
 {% block content_area_inner_content %}
 
   {{ __('This is a template for a regular page', 'theme_domain') }}
 
-  {{ parent() }}
+  <div class="c-article-alpha__content">
+    {{ parent() }}
+  </div>
 
 {% endblock %}
