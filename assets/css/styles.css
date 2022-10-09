@@ -8,9 +8,5 @@
 @import 'global/vendors.css';
 @import 'global/normalize-tweaks.css';
 @import 'global/class-utilities.css';
+@import 'global/base.css';
 
-body {
-  font-family: var(--font-base);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-}
