@@ -1,6 +1,6 @@
 @define-mixin content-wrapper {
   max-width: var(--page-max-width--with-padding);
-  padding-inline: var(--page-spacing-x);
+  padding-inline: var(--page-spacing-inline);
   margin-inline: auto;
 }
 

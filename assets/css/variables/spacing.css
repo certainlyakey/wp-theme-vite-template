@@ -8,8 +8,8 @@
   --spacing-500: 40px;
 
   /* Named spacing variables */
-  --page-spacing-x: var(--spacing-300);
+  --page-spacing-inline: var(--spacing-300);
   @media (min-width: $bp-medium-min) {
-    --page-spacing-x: var(--spacing-500);
+    --page-spacing-inline: var(--spacing-500);
   }
 }
