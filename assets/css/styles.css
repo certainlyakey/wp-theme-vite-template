@@ -1,3 +1,16 @@
+/* Variables */
+@import 'variables/colors.css';
+@import 'variables/typography.css';
+@import 'variables/spacing.css';
+@import 'variables/other.css';
+
+/* Global styles */
 @import 'global/normalize-tweaks.css';
 @import 'global/class-utilities.css';
 @import-normalize;
+
+body {
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}

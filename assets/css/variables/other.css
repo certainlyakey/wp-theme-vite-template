@@ -1,0 +1,13 @@
+:root {
+  --comment: 'Other variables';
+
+  /* Radii */
+  --radius-500: 8px;
+
+  /* Borders */
+  --border-width-100: 2px;
+
+  /* Widths */
+  --page-max-width: 1280px;
+  --page-max-width--with-padding: calc(var(--page-max-width) + var(--spacing-500) * 2);
+}

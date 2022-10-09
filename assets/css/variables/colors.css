@@ -1,0 +1,17 @@
+:root {
+  --comment: 'Colors';
+
+  /**
+  * Colors by palette
+  */
+
+  /* Gray */
+  --color-grey-0: #ffffff;
+  --color-grey-999: #000000;
+
+  /**
+  * Colors by UI purpose
+  * Only use CSS variables as values
+  */
+  --color-link: var(--color-grey-999);
+}

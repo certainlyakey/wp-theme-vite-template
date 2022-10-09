@@ -1,0 +1,15 @@
+:root {
+  --comment: 'Spacing variables';
+
+  --unit: 4px;
+
+  /* Only numbered spacing variables here */
+  --spacing-300: 20px;
+  --spacing-500: 40px;
+
+  /* Named spacing variables */
+  --page-spacing-x: var(--spacing-300);
+  @media (min-width: $bp-medium-min) {
+    --page-spacing-x: var(--spacing-500);
+  }
+}

@@ -1,3 +1,9 @@
+@define-mixin content-wrapper {
+  max-width: var(--page-max-width--with-padding);
+  padding-inline: var(--page-spacing-x);
+  margin-inline: auto;
+}
+
 @define-mixin truncate-single-line {
   text-overflow: ellipsis;
   overflow: hidden;
