@@ -1,9 +1,15 @@
+const generateCSSBreakpoints = require('./assets/utils/generate-css-breakpoints.js');
+const breakpoints = require('./assets/css/preprocessed/breakpoints.json');
+
 module.exports = {
   plugins: {
     // 'postcss-import': {}, // imports are already handled by Vite
     'autoprefixer': {},
     'postcss-mixins': {
       mixinsFiles: './assets/css/preprocessed/mixins.css'
+    },
+    'postcss-simple-vars': {
+      variables: generateCSSBreakpoints(breakpoints),
     },
     'postcss-nested': {},
     'postcss-normalize': {},

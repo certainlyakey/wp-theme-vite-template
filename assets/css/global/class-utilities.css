@@ -9,3 +9,17 @@
   border: none;
   white-space: nowrap;
 }
+
+.u-mobile-only {
+  @media (min-width: $bp-medium-min) {
+    /* stylelint-disable-next-line declaration-no-important */
+    display: none !important;
+  }
+}
+
+.u-desktop-only {
+  @media (max-width: $bp-medium-max) {
+    /* stylelint-disable-next-line declaration-no-important */
+    display: none !important;
+  }
+}
