@@ -1,7 +1,7 @@
 // for postcss-simple-vars PostCSS plugin
-const generateCSSBreakpoints = breakpoints => {
+const generateCSSBreakpoints = (breakpoints) => {
   const simpleVars = {};
-  breakpoints.forEach(breakpoint => {
+  breakpoints.forEach((breakpoint) => {
     let { name, value } = breakpoint;
     name = 'bp-' + name;
     const maxValue = value - 1;

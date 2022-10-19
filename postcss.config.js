@@ -9,17 +9,17 @@ module.exports = {
       mixinsFiles: './assets/css/preprocessed/mixins.css'
     },
     'postcss-simple-vars': {
-      variables: generateCSSBreakpoints(breakpoints),
+      variables: generateCSSBreakpoints(breakpoints)
     },
     'postcss-nested': {},
     'postcss-normalize': {},
     'postcss-pxtorem': {
       unitPrecision: 2,
-      minPixelValue: 2,
+      minPixelValue: 2
     },
     'postcss-stack': {
-      list: zIndexStack,
+      list: zIndexStack
     },
-    'autoprefixer': {},
+    autoprefixer: {}
   }
-}
+};

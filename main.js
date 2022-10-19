@@ -1,10 +1,10 @@
-console.log('main.js')
+console.log('main.js');
 
 // get styles
-import './assets/css/styles.css'
+import './assets/css/styles.css';
 
 // get scripts
-import './assets/js/scripts.js'
+import './assets/js/scripts.js';
 
 /*
 document.querySelector('#app').innerHTML = `

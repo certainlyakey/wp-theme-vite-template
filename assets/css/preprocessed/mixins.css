@@ -29,7 +29,9 @@
     blockquote {
       font-style: italic;
     }
-    p, ul, ol {
+    p,
+    ul,
+    ol {
       &:not(:only-child) {
         margin-block: calc(var(--unit) * 2);
       }
@@ -37,7 +39,8 @@
     ul li {
       list-style-type: disc;
     }
-    ul, ol {
+    ul,
+    ol {
       li li {
         margin-inline-start: calc(var(--unit) * 4);
       }
