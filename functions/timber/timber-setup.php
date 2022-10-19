@@ -25,4 +25,4 @@ if ( !class_exists( 'Timber' ) ) {
   return;
 }
 
-Timber\Timber::$dirname = ['templates', 'img'];
+Timber\Timber::$dirname = ['templates', 'dist/assets'];

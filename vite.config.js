@@ -11,30 +11,31 @@
 
 import theme_config from './common_config.json';
 import liveReload from 'vite-plugin-live-reload';
-const { resolve } = require('path');
+import SVGSpriter from 'svg-sprite';
+import glob from 'glob';
+const path = require('path');
 const fs = require('fs');
 
 console.log(theme_config.vite_port, 'Vite config loaded');
 
 // https://vitejs.dev/config
 export default {
-
   plugins: [
-    liveReload([
-      __dirname + '/**/*.php',
-      __dirname + '/**/*.twig',
-    ])
+    liveReload([__dirname + '/**/*.php', __dirname + '/**/*.twig']),
+    svgSprite({
+      inputDir: './assets/images/svg-sprite-source',
+      outputDir: './dist/assets',
+      // cssDir: './assets/css/generated',
+    }),
   ],
 
   // config
   root: '',
-  base: process.env.NODE_ENV === 'development'
-    ? '/'
-    : '/dist/',
+  base: process.env.NODE_ENV === 'development' ? '/' : '/dist/',
 
   build: {
     // output dir for production build
-    outDir: resolve(__dirname, './dist'),
+    outDir: path.resolve(__dirname, './dist'),
     emptyOutDir: true,
 
     // emit manifest so PHP can find the hashed files
@@ -46,8 +47,8 @@ export default {
     // our entry
     rollupOptions: {
       input: {
-        main: resolve( __dirname + '/main.js')
-      },
+        main: path.resolve(__dirname + '/main.js')
+      }
 
       /*
       output: {
@@ -63,7 +64,6 @@ export default {
   },
 
   server: {
-
     // required to load scripts from custom host
     cors: true,
 
@@ -89,10 +89,9 @@ export default {
     //},
 
     hmr: {
-      host: 'localhost',
+      host: 'localhost'
       //port: 443
-    },
-
+    }
   },
 
   // required for in-browser template compilation
@@ -102,5 +101,48 @@ export default {
       //vue: 'vue/dist/vue.esm-bundler.js'
     }
   }
-}
+};
 
+function svgSprite({ inputDir, outputDir }) {
+  const inputPath = path.resolve(inputDir);
+  const outputPath = path.resolve(outputDir);
+  // const cssPath = path.resolve(cssDir);
+
+  if (!fs.existsSync(inputPath)) {
+    return;
+  }
+  console.log('Generating SVG sprite...');
+  return {
+    name: 'svg-sprite',
+    buildStart: () => {
+      const files = glob.sync(`${inputPath}/*.svg`);
+      const spriter = new SVGSpriter({
+        mode: {
+          symbol: {
+            dest: '.',
+            inline: true,
+            sprite: `${outputPath}/sprite.svg`,
+            // prefix: '.u-svg-%s',
+            // dimensions: '-size',
+            // render: {
+            //   css: {
+            //     dest: `${cssPath}/svg-sprite.css`
+            //   }
+            // }
+          },
+        },
+      });
+      if (files.length) {
+        files.forEach((file) => {
+          spriter.add(file, null, fs.readFileSync(file, 'utf-8'));
+        });
+        spriter.compile((_, result) => {
+          for (const type in result.symbol) {
+            fs.mkdirSync(outputPath, { recursive: true });
+            fs.writeFileSync(result.symbol[type].path, result.symbol[type].contents);
+          }
+        });
+      }
+    },
+  };
+}
