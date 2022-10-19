@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite",
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "phplint": "vendor/bin/phpcs .",
     "build": "vite build"
   },
   "devDependencies": {
