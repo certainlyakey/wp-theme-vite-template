@@ -13,5 +13,7 @@
   * Colors by UI purpose
   * Only use CSS variables as values
   */
+  --color-bg: var(--color-grey-0);
+  --color-text: var(--color-grey-999);
   --color-link: var(--color-grey-999);
 }
