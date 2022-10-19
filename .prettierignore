@@ -1,0 +1,5 @@
+/dist
+/vendor
+/style.css
+composer.lock
+*.md

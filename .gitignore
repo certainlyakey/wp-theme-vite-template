@@ -46,3 +46,5 @@ Thumbs.db
 !.stylelintrc.json
 !.gitattributes
 !.browserslistrc
+!.prettierignore
+!.prettierrc.json
