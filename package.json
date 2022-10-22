@@ -8,11 +8,15 @@
     "prettier:fix": "prettier --write .",
     "phplint": "vendor/bin/phpcs .",
     "csslint": "stylelint ./assets/css/**/*.css",
+    "jslint": "eslint ./assets/js/**/*.js ./main.js",
     "build": "vite build"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.11",
     "cross-env": "^7.0.3",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "glob": "^8.0.3",
     "postcss": "^8.4.17",
     "postcss-mixins": "^9.0.4",
