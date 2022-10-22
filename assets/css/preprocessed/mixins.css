@@ -22,9 +22,11 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $number-of-lines;
   overflow: hidden;
+  /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
 }
 
 @define-mixin text-content {
+  /* stylelint-disable selector-max-type, selector-max-compound-selectors */
   & > {
     blockquote {
       font-style: italic;

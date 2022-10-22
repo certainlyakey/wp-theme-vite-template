@@ -5,6 +5,11 @@ const zIndexStack = require('./assets/css/preprocessed/z-index.js');
 module.exports = {
   plugins: {
     // 'postcss-import': {}, // imports are already handled by Vite
+    'stylelint': {},
+    'postcss-reporter': {
+      clearReportedMessages: true,
+      plugins: ['stylelint']
+    },
     'postcss-mixins': {
       mixinsFiles: './assets/css/preprocessed/mixins.css'
     },

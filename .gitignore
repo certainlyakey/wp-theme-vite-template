@@ -45,6 +45,7 @@ Thumbs.db
 !.jshintrc
 !.sass-lint.yml
 !.stylelintrc.json
+!.stylelintignore
 !.gitattributes
 !.browserslistrc
 !.prettierignore
