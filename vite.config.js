@@ -78,8 +78,11 @@ export default {
 
   // config
   root: '',
-  base: process.env.NODE_ENV === 'development' ? '/' : '/dist/',
-
+  base:
+    process.env.IS_VITE_DEVELOPMENT &&
+    process.env.IS_VITE_DEVELOPMENT === 'true'
+      ? '/'
+      : '/dist/',
   build: {
     // output dir for production build
     outDir: path.resolve(__dirname, './dist'),
