@@ -4,7 +4,7 @@
   Hello! This is the front page.<br>
   slugify filter test: {{ 'How do you do fellow kids?'|slugify }}<br>
   {# slugify filter error test: {{ ['fsfsd']|slugify }}<br> #}
-  extended post test: {{ frontpage.slug() }}<br>
+  extended post test: {{ post.slug() }}<br>
   common config test: {{ common_config.avatar_width }}<br>
 
   {{ post.content }}

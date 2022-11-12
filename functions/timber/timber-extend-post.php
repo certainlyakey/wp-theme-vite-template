@@ -21,6 +21,7 @@ add_filter(
   function ( $classmap ) {
     $custom_classmap = [
       'post' => CommonPost::class,
+      'page' => CommonPost::class,
     ];
 
     return array_merge( $classmap, $custom_classmap );
