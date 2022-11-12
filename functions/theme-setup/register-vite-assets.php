@@ -28,7 +28,7 @@ add_action(
         'wp_head',
         function() {
           // default server address, port and entry point can be customized in vite.config.json
-          $vite_host = 'http://localhost';
+          $vite_host = 'http://vite.vite-wp-boilerplate.lndo.site';
           $vite_port = themeprefix_get_common_config()->vite_port;
           $vite_entry_point = '/main.js';
           $vite_url = $vite_host . ':' . $vite_port . $vite_entry_point;

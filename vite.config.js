@@ -71,6 +71,7 @@ export default {
     // change freely, but update in your functions.php to match the same port
     strictPort: true,
     port: theme_config.vite_port,
+    host: true,
 
     // serve over http
     https: false,
@@ -89,7 +90,7 @@ export default {
     //},
 
     hmr: {
-      host: 'localhost'
+      host: 'vite.vite-wp-boilerplate.lndo.site'
       //port: 443
     }
   },
