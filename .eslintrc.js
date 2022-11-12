@@ -15,7 +15,6 @@ module.exports = {
     'no-duplicate-imports': ['error'],
     'no-use-before-define': ['error'],
     'no-unreachable-loop': ['error'],
-    'capitalized-comments': ['error'],
     'block-scoped-var': ['error'],
     'dot-notation': ['error'],
     'no-alert': ['error'],
