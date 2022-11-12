@@ -51,5 +51,17 @@ module.exports = {
     'curly': ['error'],
     'spaced-comment': ['error'],
     'camelcase': ['error']
-  }
+  },
+  overrides: [
+    {
+      files: ['vite.config.js'],
+      env: {
+        node: true,
+        es2021: true
+      },
+      rules: {
+        'no-console': 'off'
+      }
+    }
+  ]
 };
