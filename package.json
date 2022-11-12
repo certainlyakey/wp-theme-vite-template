@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development vite",
+    "start": "cross-env NODE_ENV=development vite",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "phplint": "vendor/bin/phpcs .",

@@ -36,10 +36,10 @@ import "./assets/js/scripts.js"
 
 ## Development with live preview/refresh
 
-Ensure `IS_VITE_DEVELOPMENT` environment variable exists, is available and loaded to PHP and is set to `true`. Just run **npm run dev** and refresh your development website.
+Ensure `IS_VITE_DEVELOPMENT` environment variable exists, is available and loaded to PHP and is set to `true`. Just run **npm run start** and refresh your development website.
 
 ```bash
-npm run dev
+npm run start
 ```
 After Vite dev server is started open your installed Wordpress website in any browser or refresh it. Then you can start editing index.php, or any other php file in your theme. After saving changes your browser page eg your site should refresh immediately. You can freely edit asset files like styles.css, scripts.js too.
 
