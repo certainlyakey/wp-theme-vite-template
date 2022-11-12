@@ -51,6 +51,6 @@ add_action( 'acf/init', 'themeprefix_acf_localize_fields_when_exporting' );
 add_filter(
   'acf/settings/show_admin',
   function() {
-    return !isset( $_ENV['IS_VITE_DEVELOPMENT'] ) || 'dev' === $_ENV['IS_VITE_DEVELOPMENT'];
+    return !isset( $_ENV['IS_VITE_DEVELOPMENT'] ) || true == $_ENV['IS_VITE_DEVELOPMENT'];
   }
 );
