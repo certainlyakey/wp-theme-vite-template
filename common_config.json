@@ -2,5 +2,5 @@
   "avatar_width": 80,
   "avatar_height": 80,
   "lando_vite_port": 3334,
-  "force_local_dev": false
+  "force_native_assets_build": false
 }

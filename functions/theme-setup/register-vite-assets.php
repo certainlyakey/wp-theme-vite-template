@@ -17,14 +17,14 @@ add_action(
 
     $js_deps = [];
 
-    $force_local_dev = false;
-    if ( property_exists( themeprefix_get_common_config(), 'force_local_dev' ) ) {
-      $force_local_dev = themeprefix_get_common_config()->force_local_dev === true;
+    $force_native_assets_build = false;
+    if ( property_exists( themeprefix_get_common_config(), 'force_native_assets_build' ) ) {
+      $force_native_assets_build = themeprefix_get_common_config()->force_native_assets_build === true;
     }
 
     if ( array_key_exists( 'GENERATE_ASSETS_FOR_DEV', $_ENV ) && true == $_ENV['GENERATE_ASSETS_FOR_DEV'] ) {
       $vite_host = 'http://localhost';
-      if ( $_ENV['LANDO_INFO'] && !$force_local_dev ) {
+      if ( $_ENV['LANDO_INFO'] && !$force_native_assets_build ) {
         $lando_info = json_decode( $_ENV['LANDO_INFO'], true );
         if ( $lando_info ) {
           $vite_host = $lando_info['node']['urls'][0];
@@ -36,9 +36,9 @@ add_action(
 
       add_action(
         'wp_head',
-        function() use ( $vite_host, $force_local_dev ) {
+        function() use ( $vite_host, $force_native_assets_build ) {
           // default server address, port and entry point can be customized in vite.config.json
-          $vite_port = $_ENV['LANDO_INFO'] && !$force_local_dev ? themeprefix_get_common_config()->lando_vite_port : 3000;
+          $vite_port = $_ENV['LANDO_INFO'] && !$force_native_assets_build ? themeprefix_get_common_config()->lando_vite_port : 3000;
           $vite_entry_point = '/main.js';
           $vite_url = $vite_host . ':' . $vite_port . $vite_entry_point;
           echo '<script type="module" crossorigin src="' . esc_url( $vite_url ) . '"></script>';
