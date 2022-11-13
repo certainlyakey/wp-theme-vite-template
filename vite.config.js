@@ -16,7 +16,11 @@ import glob from 'glob';
 import path from 'path';
 import fs from 'fs';
 
-console.log(themeConfig.lando_vite_port, 'Vite config loaded');
+const isDev = process.env.GENERATE_ASSETS_FOR_DEV && process.env.GENERATE_ASSETS_FOR_DEV === 'true';
+
+if (isDev) {
+  console.log(themeConfig.lando_vite_port, 'Vite config loaded');
+}
 
 function getLandoProxyURL() {
   if (process.env.LANDO_INFO) {
@@ -30,7 +34,9 @@ function getLandoProxyURL() {
 
 const landoProxyURL = getLandoProxyURL();
 
-console.log(landoProxyURL ? `Lando proxy URL is: ${landoProxyURL}` : 'Lando proxy URL is not found');
+if (isDev) {
+  console.log(landoProxyURL ? `Lando proxy URL is: ${landoProxyURL}` : 'Lando proxy URL is not found');
+}
 
 function svgSprite({ inputDir, outputDir }) {
   const inputPath = path.resolve(inputDir);
@@ -89,7 +95,7 @@ export default {
   ],
 
   root: '',
-  base: process.env.GENERATE_ASSETS_FOR_DEV && process.env.GENERATE_ASSETS_FOR_DEV === 'true' ? '/' : '/dist/',
+  base: isDev ? '/' : '/dist/',
 
   // production build
   build: {
