@@ -38,3 +38,9 @@ Entry point file **main.js** is where you `import` all your scripts and styles.
 ## Production build
 
 Just make sure `IS_VITE_DEVELOPMENT` is not set and run `npm run build`.
+
+
+## TODO
+
+1. Rename `IS_VITE_DEVELOPMENT` to `GENERATE_ASSETS_FOR_DEV`
+2. Move `force_local_dev` from `common_config.json` to `.env`?
