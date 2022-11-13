@@ -21,6 +21,7 @@
 3. Then from your console or command prompt go to the theme folder and run `npm install`.
 4. Run `composer install` in the theme folder.
 5. Activate the theme in the admin or via WP CLI.
+6. For local development, ensure that both PHP and node (Vite) have an environment variable `IS_VITE_DEVELOPMENT` set to `true`.
 
 
 ## Local development
