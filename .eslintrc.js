@@ -9,7 +9,7 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
-    'prettier/prettier': ['error'],
+    'prettier/prettier': ['warn'],
     'no-var': ['error'],
     'no-constant-binary-expression': ['error'],
     'no-duplicate-imports': ['error'],
