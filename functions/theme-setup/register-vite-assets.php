@@ -1,11 +1,10 @@
 <?php
 /*
-* VITE development
+* Vite development
 * Inspired by https://github.com/andrefelipe/vite-php-setup
 *
 */
 
-// enqueue hook
 add_action(
   'wp_enqueue_scripts',
   function() {
@@ -13,23 +12,28 @@ add_action(
     // dist subfolder - defined in vite.config.json
     $dist_folder = 'dist';
 
-    // defining some base urls and paths
     $dist_uri = get_template_directory_uri() . '/' . $dist_folder;
     $dist_path = get_template_directory() . '/' . $dist_folder;
 
-    // js enqueue settings
     $js_deps = [];
 
     if ( $_ENV['IS_VITE_DEVELOPMENT'] && true == $_ENV['IS_VITE_DEVELOPMENT'] ) {
+      $vite_host = 'http://localhost';
+      if ( $_ENV['LANDO_INFO'] ) {
+        $lando_info = json_decode( $_ENV['LANDO_INFO'], true );
+        if ( $lando_info ) {
+          $vite_host = $lando_info['node']['urls'][0];
+          $vite_host = trim( $vite_host, '/' );
+        }
+      }
 
-      // insert hmr into head for live reload
+      // inserting HMR into <head> for live reload
 
       add_action(
         'wp_head',
-        function() {
+        function() use ( $vite_host ) {
           // default server address, port and entry point can be customized in vite.config.json
-          $vite_host = 'http://vite.vite-wp-boilerplate.lndo.site';
-          $vite_port = themeprefix_get_common_config()->vite_port;
+          $vite_port = $_ENV['LANDO_INFO'] ? themeprefix_get_common_config()->vite_port : 3000;
           $vite_entry_point = '/main.js';
           $vite_url = $vite_host . ':' . $vite_port . $vite_entry_point;
           echo '<script type="module" crossorigin src="' . esc_url( $vite_url ) . '"></script>';
@@ -39,7 +43,6 @@ add_action(
     } else {
 
       // production version, 'npm run build' must be executed in order to generate assets
-
       // read manifest.json to figure out what to enqueue
       $manifest = json_decode( file_get_contents( $dist_path . '/manifest.json' ), true );
 
@@ -49,12 +52,10 @@ add_action(
         $manifest_key = array_keys( $manifest );
         if ( isset( $manifest_key[0] ) ) {
 
-          // enqueue CSS files
           foreach ( @$manifest[ $manifest_key[0] ]['css'] as $css_file ) {
             wp_enqueue_style( 'main', $dist_uri . '/' . $css_file );
           }
 
-          // enqueue main JS file
           $js_file = @$manifest[ $manifest_key[0] ]['file'];
           if ( !empty( $js_file ) ) {
             wp_enqueue_script( 'main', $dist_uri . '/' . $js_file, $js_deps, '', true );
