@@ -16,7 +16,7 @@ import glob from 'glob';
 import path from 'path';
 import fs from 'fs';
 
-console.log(themeConfig.vite_port, 'Vite config loaded');
+console.log(themeConfig.lando_vite_port, 'Vite config loaded');
 
 function getLandoProxyURL() {
   if (process.env.LANDO_INFO) {
@@ -114,7 +114,7 @@ export default {
     cors: true,
     // We need a strict port to match on PHP side
     strictPort: true,
-    port: landoProxyURL ? themeConfig.vite_port : 3000,
+    port: landoProxyURL ? themeConfig.lando_vite_port : 3000,
     host: landoProxyURL ? true : 'localhost',
     https: false,
     hmr: {
