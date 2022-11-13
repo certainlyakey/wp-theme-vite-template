@@ -22,7 +22,7 @@ add_action(
       $force_local_dev = themeprefix_get_common_config()->force_local_dev === true;
     }
 
-    if ( $_ENV['IS_VITE_DEVELOPMENT'] && true == $_ENV['IS_VITE_DEVELOPMENT'] ) {
+    if ( array_key_exists( 'IS_VITE_DEVELOPMENT', $_ENV ) && true == $_ENV['IS_VITE_DEVELOPMENT'] ) {
       $vite_host = 'http://localhost';
       if ( $_ENV['LANDO_INFO'] && !$force_local_dev ) {
         $lando_info = json_decode( $_ENV['LANDO_INFO'], true );
