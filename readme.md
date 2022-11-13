@@ -22,33 +22,19 @@
 4. Run `composer install` in the theme folder.
 5. Activate the theme in the admin or via WP CLI.
 
+
+## Local development
+
+- Running from [lando](https://lando.dev/): run `npm run start` inside your `node` container (or it add to your lando tooling), then open http://lando-wp-site-template.lndo.site/ - refresh will happen automatically.
+- Running locally from OS: in `common_config.json` set `force_local_dev` to `true`, then run `npm run start` and open http://lando-wp-site-template.lndo.site/.
+- To load the prod assets on local without running the `watch`/`start` command, set `IS_VITE_DEVELOPMENT` to false and run `npm run build` (you may need also to rebuild the lando app sometimes).
+
+
 ## Adding scripts and styles
 
-Entry point file **main.js** is where you include all your scripts and styles. It can be changed via **vite.config.js** and **register-vite-assets.php**.
-
-```bash
-# get styles
-import "./assets/css/styles.css"
-
-# get scripts
-import "./assets/js/scripts.js"
-```
-
-## Development with live preview/refresh
-
-Ensure `IS_VITE_DEVELOPMENT` environment variable exists, is available and loaded to PHP and is set to `true`. Just run **npm run start** and refresh your development website.
-
-```bash
-npm run start
-```
-After Vite dev server is started open your installed Wordpress website in any browser or refresh it. Then you can start editing index.php, or any other php file in your theme. After saving changes your browser page eg your site should refresh immediately. You can freely edit asset files like styles.css, scripts.js too.
+Entry point file **main.js** is where you `import` all your scripts and styles.
 
 
 ## Production build
 
-Just run **npm run build**, make sure `IS_VITE_DEVELOPMENT` is not set and refresh local website.
-
-```bash
-npm run build
-```
-Wordpress should load now production generated assets.
+Just make sure `IS_VITE_DEVELOPMENT` is not set and run `npm run build`.
