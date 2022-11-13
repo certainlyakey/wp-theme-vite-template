@@ -66,6 +66,7 @@ function svgSprite({ inputDir, outputDir }) {
   };
 }
 
+/** @type {import('vite').UserConfig} */
 export default {
   plugins: [
     liveReload([`${__dirname}/**/*.php`, `${__dirname}/**/*.twig`]),
