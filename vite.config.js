@@ -89,7 +89,7 @@ export default {
   ],
 
   root: '',
-  base: process.env.IS_VITE_DEVELOPMENT && process.env.IS_VITE_DEVELOPMENT === 'true' ? '/' : '/dist/',
+  base: process.env.GENERATE_ASSETS_FOR_DEV && process.env.GENERATE_ASSETS_FOR_DEV === 'true' ? '/' : '/dist/',
 
   // production build
   build: {
