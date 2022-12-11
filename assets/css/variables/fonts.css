@@ -1,0 +1,7 @@
+/* stylelint-disable declaration-property-value-allowed-list */
+@font-face {
+  font-family: 'Font name';
+  font-weight: 400;
+  src: url('/assets/fonts/fontname.woff2') format('woff2');
+}
+/* stylelint-enable declaration-property-value-allowed-list */
