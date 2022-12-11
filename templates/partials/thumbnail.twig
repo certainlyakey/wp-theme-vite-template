@@ -3,7 +3,7 @@
   {% if post.thumbnail %}
     {% set thumbnail = post.thumbnail %}
   {% endif %}
-  {% if post.object_type == 'image' %}
+  {% if post.object_type == 'image' or post.type == 'image' %}
     {% set thumbnail = post %}
   {% endif %}
 
