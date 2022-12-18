@@ -4,4 +4,4 @@ console.log('main.js loaded');
 import './assets/css/styles.css';
 
 // Get scripts
-import './assets/js/scripts.js';
+import './assets/js/prepare-styles.js';
