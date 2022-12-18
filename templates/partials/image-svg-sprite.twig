@@ -7,6 +7,6 @@
 
   <svg {{ title ? 'role="img"' : 'aria-hidden="true"' }}{{ ' class="' ~ svg_classes|join(' ') ~ '"' }}>
     {{ title ? ' <title>' ~ title ~ '</title>' }}
-    <use xlink:href="{{ theme_link ? theme_link : theme.link }}/img/sprite.svg#{{ id }}"></use>
+    <use xlink:href="#{{ id }}"></use>
   </svg>
 {% endif %}
