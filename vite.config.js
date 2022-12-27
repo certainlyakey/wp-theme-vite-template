@@ -89,7 +89,8 @@ export default {
     liveReload([`${__dirname}/**/*.php`, `${__dirname}/**/*.twig`]),
     svgSprite({
       inputDir: './assets/images/svg-sprite-source',
-      outputDir: './dist/assets'
+      // We can't output SVG sprite to dist since it gets emptied by vite (see https://github.com/vitejs/vite/discussions/6686, maybe we could use this solution https://stackoverflow.com/a/74419956/102397)
+      outputDir: './assets'
       // cssDir: './assets/css/generated',
     })
   ],

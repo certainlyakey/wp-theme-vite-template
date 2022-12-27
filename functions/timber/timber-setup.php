@@ -25,4 +25,6 @@ if ( !class_exists( 'Timber' ) ) {
   return;
 }
 
-Timber\Timber::$dirname = ['templates', 'dist/assets'];
+// Only relevant for paths inside Twig files
+$svg_sprite_dir = 'assets';
+Timber\Timber::$dirname = [ 'templates', $svg_sprite_dir ];
