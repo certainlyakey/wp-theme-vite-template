@@ -16,3 +16,18 @@ function themeprefix_edit_customizer( $wp_customize ) {
 }
 
 add_action( 'customize_register', 'themeprefix_edit_customizer' );
+
+
+
+function themeprefix_add_block_categories( $categories ) {
+  $custom_block_category = [
+    'slug' => 'themeprefix-block-category',
+    'title' => __( 'Custom theme blocks', 'theme_domain' ),
+    'icon'  => 'text',
+  ];
+
+  array_unshift( $categories, $custom_block_category );
+  return $categories;
+}
+
+add_filter( 'block_categories_all', 'themeprefix_add_block_categories', 10, 2 );
