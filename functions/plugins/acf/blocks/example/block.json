@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "acf/example",
+  "title": "Example block",
+  "description": "An example block with ACF fields",
+  "category": "themeprefix-block-category",
+  "icon": "text",
+  "keywords": ["summary", "text"],
+  "supports": {
+    "align": false,
+    "mode": false
+  },
+  "acf": {
+    "renderCallback": "themeprefix_acf_blocks_render",
+    "mode": "edit"
+  }
+}

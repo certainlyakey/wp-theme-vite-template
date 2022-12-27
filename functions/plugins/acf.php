@@ -54,3 +54,53 @@ add_filter(
     return !isset( $_ENV['GENERATE_ASSETS_FOR_DEV'] ) || true == $_ENV['GENERATE_ASSETS_FOR_DEV'];
   }
 );
+
+
+
+function themeprefix_acf_blocks_render( $block, $content = '', $is_preview = false, $post_id = 0 ) {
+  $context = Timber\Timber::context();
+
+  $context['block'] = $block;
+
+  $fields = get_fields();
+
+  $slug = str_replace( 'acf/', '', $block['name'] );
+
+  $fields_keys = array_map(
+    function( $key ) use ( $slug ) {
+      return str_replace( 'block_' . $slug . '_', '', $key );
+    },
+    array_keys( $fields )
+  );
+  $fields = array_combine( $fields_keys, array_values( $fields ) );
+
+  $preprocess_function_name = 'themeprefix_acf_blocks_preprocess_' . themeprefix_replace_dashes_with_underscores( $slug );
+
+  if ( function_exists( $preprocess_function_name ) ) {
+    $context = call_user_func( $preprocess_function_name, $context, $fields, $post_id );
+  }
+
+  $context['fields'] = $fields;
+  $context['is_preview'] = $is_preview;
+
+  $block_supports_nesting = array_key_exists( 'supports', $block ) && array_key_exists( 'jsx', $block['supports'] ) && true === $block['supports']['jsx'];
+
+  // Nested blocks can only be inserted in the preview mode
+  if ( $is_preview && !$block_supports_nesting ) {
+    Timber\Timber::render_string(
+      sprintf(
+        // translators: <em><a>
+        esc_html__( '%1$sPreview is not available for this block, please visit %2$sthe page%3$s to see it%4$s', 'theme_domain' ),
+        '<em style="color:#666">',
+        '<a href="' . get_permalink( $post_id ) . '" target="_blank">',
+        '</a>',
+        '</em>'
+      )
+    );
+  } else {
+    if ( array_key_exists( 'GENERATE_ASSETS_FOR_DEV', $_ENV ) && true == $_ENV['GENERATE_ASSETS_FOR_DEV'] ) {
+      Timber\Timber::render_string( '<!-- ACF block: ' . $block['title'] . ' (' . $block['name'] . ') -->' );
+    }
+    Timber\Timber::render( 'functions/plugins/acf/blocks/' . $slug . '/block-' . $slug . '.twig', $context );
+  }
+}
