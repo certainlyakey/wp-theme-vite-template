@@ -101,6 +101,6 @@ function themeprefix_acf_blocks_render( $block, $content = '', $is_preview = fal
     if ( array_key_exists( 'GENERATE_ASSETS_FOR_DEV', $_ENV ) && true == $_ENV['GENERATE_ASSETS_FOR_DEV'] ) {
       Timber\Timber::render_string( '<!-- ACF block: ' . $block['title'] . ' (' . $block['name'] . ') -->' );
     }
-    Timber\Timber::render( 'functions/plugins/acf/blocks/' . $slug . '/block-' . $slug . '.twig', $context );
+    Timber\Timber::render( 'functions/blocks/' . $slug . '/block-' . $slug . '.twig', $context );
   }
 }
