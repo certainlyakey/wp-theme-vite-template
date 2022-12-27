@@ -17,6 +17,7 @@ import path from 'path';
 import fs from 'fs';
 
 const isDev = process.env.GENERATE_ASSETS_FOR_DEV && process.env.GENERATE_ASSETS_FOR_DEV === 'true';
+console.log('isDev: ', Boolean(isDev));
 
 if (isDev) {
   console.log(themeConfig.lando_vite_port, 'Vite config loaded');
