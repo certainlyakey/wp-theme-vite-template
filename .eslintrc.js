@@ -54,7 +54,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['vite.config.js', 'postcss.config.js'],
+      files: ['vite.config.js', 'postcss.config.js', 'assets/css/preprocessed/*.js', 'assets/utils/postcss/*.js'],
       env: {
         node: true,
         es2021: true

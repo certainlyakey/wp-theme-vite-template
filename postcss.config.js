@@ -1,4 +1,4 @@
-const generateCSSBreakpoints = require('./assets/utils/generate-css-breakpoints.js');
+const generateCSSBreakpoints = require('./assets/utils/postcss/generate-css-breakpoints.js');
 const breakpoints = require('./assets/css/preprocessed/breakpoints.json');
 const zIndexStack = require('./assets/css/preprocessed/z-index.js');
 

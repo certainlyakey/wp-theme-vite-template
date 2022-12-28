@@ -3,13 +3,13 @@ const generateCSSBreakpoints = (breakpoints) => {
   const simpleVars = {};
   breakpoints.forEach((breakpoint) => {
     let { name, value } = breakpoint;
-    name = 'bp-' + name;
+    name = `bp-${name}`;
     const maxValue = value - 1;
 
     // for use with @media (min-width)
-    simpleVars[name + '-min'] = value + 'px';
+    simpleVars[`${name}-min`] = `${value}px`;
     // for use with @media (max-width)
-    simpleVars[name + '-max'] = maxValue + 'px';
+    simpleVars[`${name}-max`] = `${maxValue}px`;
   });
   // Actual variables will look like this:
   // 'bp-small-min': '420px',
