@@ -51,7 +51,7 @@ add_action( 'acf/init', 'themeprefix_acf_localize_fields_when_exporting' );
 add_filter(
   'acf/settings/show_admin',
   function() {
-    return !isset( $_ENV['GENERATE_ASSETS_FOR_DEV'] ) || true == $_ENV['GENERATE_ASSETS_FOR_DEV'];
+    return !isset( $_ENV['GENERATE_ASSETS_FOR_DEV'] ) || 'true' === $_ENV['GENERATE_ASSETS_FOR_DEV'];
   }
 );
 
