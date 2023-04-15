@@ -34,6 +34,7 @@
     <!--
       Disabled intentionally
     -->
+    <exclude name="WordPress.WP.EnqueuedResourceParameters.MissingVersion" />
     <exclude name="WordPress.WhiteSpace.OperatorSpacing.NoSpaceAfter" />
     <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />
     <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound" />
@@ -60,7 +61,10 @@
   -->
   <rule ref="WordPress.WP.I18n">
     <properties>
-      <property name="text_domain" type="array" value="theme_domain" />
+      <property name="text_domain" type="array">
+        <element value="theme_domain" />
+        <!-- <element value="theme_domain2" /> -->
+      </property>
     </properties>
   </rule>
 
