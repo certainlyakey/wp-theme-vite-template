@@ -5,7 +5,7 @@
   "description": "An example block with ACF fields",
   "category": "themeprefix-block-category",
   "icon": "text",
-  "keywords": ["summary", "text"],
+  "keywords": ["themeprefix", "summary", "text"],
   "supports": {
     "align": false,
     "mode": false
