@@ -1,8 +1,8 @@
 /* stylelint-disable declaration-property-value-allowed-list */
-// font files should go to theme folder/public/assets/fonts/
+/* font files should go to theme folder/public/assets/fonts/ */
 @font-face {
   font-family: 'Font name';
   font-weight: 400;
-  src: url('../assets/fonts/fontname.woff2') format('woff2');
+  src: url('$(_assets_path)/fonts/fontname.woff2') format('woff2');
 }
 /* stylelint-enable declaration-property-value-allowed-list */

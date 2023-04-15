@@ -31,11 +31,13 @@
 - Running locally from OS: in `common_config.json` set `force_native_assets_build` to `true`, then run `npm run start` in the theme folder and open http://lando-wp-site-template.lndo.site/.
 - To load the prod assets on local without running the `watch`/`start` command, set `GENERATE_ASSETS_FOR_DEV` environment variable to false or remove it and run `npm run build` (you may need also to rebuild the lando app sometimes if you are using it).
 
-
 ## Adding scripts and styles
 
 Entry point file **main.js** is where you `import` all your scripts and styles.
 
+## Adding fonts and images to be used in CSS
+
+Add fonts and images (or any assets to be loaded via CSS) to the `public` folder. For resources loading on client side you will need to use a PostCSS ([postcss-simple-vars](https://github.com/postcss/postcss-simple-vars)) variable as a assets path prefix (eg `url('$(_assets_path)/images/2022-11-08.jpg')`). This is not necessary when referencing assets that will be inlined by PostCSS in build phase (eg by employing [postcss-inline-svg](https://www.npmjs.com/package/postcss-inline-svg)). 
 
 ## Production build
 
