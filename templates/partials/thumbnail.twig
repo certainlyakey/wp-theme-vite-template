@@ -1,10 +1,11 @@
 {% if post %}
 
+  {% if post.object_type == 'image' or post.type == 'image' or post.sizes is defined %}
+    {% set thumbnail = post %}
+  {% endif %}
+
   {% if post.thumbnail %}
     {% set thumbnail = post.thumbnail %}
-  {% endif %}
-  {% if post.object_type == 'image' or post.type == 'image' %}
-    {% set thumbnail = post %}
   {% endif %}
 
   {% if thumbnail %}
