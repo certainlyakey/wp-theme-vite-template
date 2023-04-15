@@ -12,7 +12,7 @@
   --line-height-100: 1;
   --line-height-400: 1.4;
 
-  --font-base: Helvetica, Arial, sans-serif;
+  --font-base: 'Gentium Book Plus', Helvetica, Arial, sans-serif;
   --font-size-base: var(--font-size-500);
   --line-height-base: var(--line-height-400);
 }

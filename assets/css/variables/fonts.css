@@ -1,8 +1,25 @@
 /* stylelint-disable declaration-property-value-allowed-list */
 /* font files should go to theme folder/public/assets/fonts/ */
 @font-face {
-  font-family: 'Font name';
+  font-family: 'Gentium Book Plus';
   font-weight: 400;
-  src: url('$(_assets_path)/fonts/fontname.woff2') format('woff2');
+  src: url('$(_assets_path)/fonts/GentiumBookPlus-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gentium Book Plus';
+  font-weight: 400;
+  font-style: italic;
+  src: url('$(_assets_path)/fonts/GentiumBookPlus-Italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gentium Book Plus';
+  font-weight: 700;
+  src: url('$(_assets_path)/fonts/GentiumBookPlus-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gentium Book Plus';
+  font-weight: 700;
+  font-style: italic;
+  src: url('$(_assets_path)/fonts/GentiumBookPlus-BoldItalic.woff2') format('woff2');
 }
 /* stylelint-enable declaration-property-value-allowed-list */
