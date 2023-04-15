@@ -66,6 +66,13 @@ module.exports = {
       rules: {
         'no-console': 'off'
       }
+    },
+    {
+      // Block editor scripts that modify core blocks
+      files: ['public/assets/admin-scripts/*.js'],
+      globals: {
+        wp: 'readonly'
+      }
     }
   ]
 };
