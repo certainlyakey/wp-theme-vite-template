@@ -8,6 +8,9 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
+  globals: {
+    scriptData: 'readonly'
+  },
   rules: {
     'prettier/prettier': ['warn'],
     'no-var': ['error'],
