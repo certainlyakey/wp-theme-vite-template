@@ -31,3 +31,7 @@ function themeprefix_add_block_categories( $categories ) {
 }
 
 add_filter( 'block_categories_all', 'themeprefix_add_block_categories', 10, 2 );
+
+
+
+add_filter( 'xmlrpc_enabled', '__return_false' );
