@@ -30,8 +30,9 @@ module.exports = {
       minPixelValue: 2
     },
     'postcss-stack': {
-      list: zIndexStack
+      list: zIndexStack,
+      increment: 100
     },
-    autoprefixer: {}
+    'autoprefixer': {}
   }
 };
