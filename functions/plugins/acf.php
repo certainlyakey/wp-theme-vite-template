@@ -66,13 +66,16 @@ function themeprefix_acf_blocks_render( $block, $content = '', $is_preview = fal
 
   $slug = str_replace( 'acf/', '', $block['name'] );
 
-  $fields_keys = array_map(
-    function( $key ) use ( $slug ) {
-      return str_replace( 'block_' . $slug . '_', '', $key );
-    },
-    array_keys( $fields )
-  );
-  $fields = array_combine( $fields_keys, array_values( $fields ) );
+  if ( $fields ) {
+    $fields_keys = array_map(
+      function( $key ) use ( $slug ) {
+        return str_replace( 'block_' . $slug . '_', '', $key );
+      },
+      array_keys( $fields )
+    );
+    $fields = array_combine( $fields_keys, array_values( $fields ) );
+    $context = array_merge( $context, $fields );
+  }
 
   $preprocess_function_name = 'themeprefix_acf_blocks_preprocess_' . themeprefix_replace_dashes_with_underscores( $slug );
 
