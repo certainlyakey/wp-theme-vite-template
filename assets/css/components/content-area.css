@@ -1,3 +1,5 @@
 .c-content-area {
+  --comment: 'Wraps all content and sets default horizontal page margins';
+
   @mixin content-wrapper;
 }
