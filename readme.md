@@ -37,7 +37,7 @@ Entry point file **main.js** is where you `import` all your scripts and styles.
 
 ## Adding fonts and images to be used in CSS
 
-Add fonts and images (or any assets to be loaded via CSS) to the `public` folder. For resources loading on client side you will need to use a PostCSS ([postcss-simple-vars](https://github.com/postcss/postcss-simple-vars)) variable as a assets path prefix (eg `url('$(_assets_path)/images/2022-11-08.jpg')`). This is not necessary when referencing assets that will be inlined by PostCSS in build phase (eg by employing [postcss-inline-svg](https://www.npmjs.com/package/postcss-inline-svg)). 
+Add fonts and images (or any assets to be loaded via CSS) to the `public` folder. For resources loading on client side you will need to use a PostCSS ([postcss-simple-vars](https://github.com/postcss/postcss-simple-vars)) variable as a assets path prefix (eg `url('$(_assets_path)/images/2022-11-08.jpg')`). This is not necessary when referencing assets that will be inlined by PostCSS in build phase (eg by employing [postcss-inline-svg](https://www.npmjs.com/package/postcss-inline-svg)).
 
 ## Production build
 
@@ -47,3 +47,14 @@ Just make sure `GENERATE_ASSETS_FOR_DEV` is not set and run `npm run build`.
 ## TODO
 
 1. Move `force_native_assets_build` from `common_config.json` to `.env`?
+
+
+## Issues
+
+### Gutenberg
+
+1. presence of `theme.json` removes all styles from editor
+
+### PostCSS
+
+1. `postcss-simple-vars` with `postcss-nested` doesn't allow the same `$base` variable to be reused (silently using the previous component's class)
