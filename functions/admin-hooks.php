@@ -23,7 +23,7 @@ function themeprefix_add_block_categories( $categories ) {
   $custom_block_category = [
     'slug' => 'themeprefix-block-category',
     'title' => __( 'Custom theme blocks', 'theme_domain' ),
-    'icon'  => 'text',
+    'icon'  => 'admin-settings',
   ];
 
   array_unshift( $categories, $custom_block_category );
