@@ -2,6 +2,7 @@
 const generateCSSBreakpoints = (breakpoints) => {
   const simpleVars = {};
   breakpoints.forEach((breakpoint) => {
+    // eslint-disable-next-line prefer-const
     let { name, value } = breakpoint;
     name = `bp-${name}`;
     const maxValue = value - 1;
