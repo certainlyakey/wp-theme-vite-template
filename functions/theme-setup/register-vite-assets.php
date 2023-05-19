@@ -22,7 +22,12 @@ add_action(
       $force_native_assets_build = themeprefix_get_common_config()->force_native_assets_build === true;
     }
 
-    if ( array_key_exists( 'GENERATE_ASSETS_FOR_DEV', $_ENV ) && 'true' === $_ENV['GENERATE_ASSETS_FOR_DEV'] ) {
+    if (
+      array_key_exists( 'GENERATE_ASSETS_FOR_DEV', $_ENV ) &&
+      'true' === $_ENV['GENERATE_ASSETS_FOR_DEV'] &&
+      array_key_exists( 'LANDO_MOUNT', $_ENV ) &&
+      file_exists( $_ENV['LANDO_MOUNT'] . '/.vite-hmr' )
+    ) {
       $vite_host = 'http://localhost';
       if ( array_key_exists( 'LANDO_INFO', $_ENV ) && !$force_native_assets_build ) {
         $lando_info = json_decode( $_ENV['LANDO_INFO'], true );
